@@ -1,0 +1,14 @@
+service: express-tytpescript-lambda-test-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-central-1
+
+functions:
+  aws-express-typescript:
+    handler: dist/src/app.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
+#handler: dist/src/app.handler          dist/src işine dikkat et. eğer / altında bir dosya varsa app src altına gidiyor
